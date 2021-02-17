@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Mac Pro",
+    "text": "If you must have the latest toys Mac has just released their latest 'Pro' incarnation with all options enabled will cost you over $50,000",
+    "readmore": "https://www.macrumors.com/2019/12/10/maxed-out-mac-pro-price/",
+    "date":"2019-12-12T11:00:00"
+
+  },
+  {
+    "name": "Firefox 71",
+    "text": "These include the web socket message inspector, console multi-line editor mode, log on events, and network panel full text search! And as if that wasn’t good enough, there are important new web platform features available, like CSS subgrid, column-span, Promise.allSettled, and the Media Session API.",
+    "readmore": "https://hacks.mozilla.org/2019/12/firefox-71-a-year-end-arrival/",
+    "date": "2019-12-12T11:00:00"
+  },
+  {
+    "name": "Chrome 79",
+    "text": "This release comes with security and bug fixes, but also with new features such as built-in support for the Password Checkup tool, real-time blacklisting of malicious sites via the Safe Browsing API, general availability of Predicitive Phishing protections, a ban on loading HTTPS 'mixed content', support for tab freezing, a new UI for the Chrome Sync profile section, and support for a back-forward caching mechanism.",
+    "readmore": "https://www.zdnet.com/article/chrome-79-released-with-tab-freezing-back-forward-caching-and-loads-of-security-features/",
+    "date": "2019-12-12T11:00:00"
+  },
+  {
+    "name": "Michromium",
+    "text": "The new version of Chromium powered Microsoft Edge is now out of preview and available for download",
+    "readmore": "https://www.macrumors.com/2019/12/10/maxed-out-mac-pro-price/",
+    "date": "2020-01-20T11:00:00"
+  }
+]

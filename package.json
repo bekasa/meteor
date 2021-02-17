@@ -1,0 +1,28 @@
+{
+  "name": "mwb2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "postcss css/tailwind.css -o css/styles.css",
+    "build:prodcss": "NODE_ENV=production postcss css/tailwind.css -o css/styles.css",
+    "watch:html": "eleventy --serve --port=8181"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.1",
+    "autoprefixer": "^10.2.4",
+    "cssnano": "^4.1.10",
+    "postcss": "^8.2.6",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.0.3"
+  },
+  "dependencies": {
+    "@11ty/eleventy-plugin-rss": "^1.1.0",
+    "eleventy-plugin-pwa": "^1.0.8",
+    "luxon": "^1.26.0",
+    "moment": "^2.29.1"
+  }
+}

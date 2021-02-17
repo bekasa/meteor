@@ -1,0 +1,50 @@
+---
+layout: main.njk
+pageTitle: Articles Related to Website Design and Development - meteorwebsitedesign.com
+description: Web development related articles written in plain English avoiding jargon wherever possible
+panel_title: "Blog - Web Development"
+panel_summary: "Blog, interesting and current web development subjects in simple clear non-technical jargon free language"
+breadcrumb: "Blog"
+pa_jpg: "https://res.cloudinary.com/bekasa/image/upload/v1577478638/library_new_s_j1l2cv.jpg"
+pa_s_jpg: "https://res.cloudinary.com/bekasa/image/upload/v1577478638/library_new_s_ifzax8.webp"
+panel_image: "https://res.cloudinary.com/bekasa/image/upload/v1547288890/library_le8e6a.webp"
+panel_image_s: "https://res.cloudinary.com/bekasa/image/upload/v1547289109/library_s_bsjfuj.webp"
+---
+{#
+pagination:
+  data: collections.blog
+  size: 6
+  reverse: true
+permalink: "blog/page-{{ pagination.pageNumber + 1 }}/index.html"
+#}
+{% include "partials/headings.njk" %}
+  <div class="lg:w-5/6 mx-auto"> 
+    <div class="blog_grid py-6">
+{#      {% for blog in collections.blog | reverse %}#}
+{#      {% for blog in pagination.items %}#}
+{% for blog in collections.blog | status %}    
+      {% include 'blog_item_extract.njk' %}
+      {% endfor %}
+    </div>
+{#}
+<div class="p-4 flex justify-center">
+
+          {% if pagination.previousPageHref %}
+            <a href="{{ pagination.previousPageHref }}" class="page-numbers">&nbsp;Previous&nbsp;</a>
+          {% else %}
+            <span class="page-numbers">&nbsp;Previous&nbsp;</span>
+          {% endif %}
+          <span class="page-numbers ">
+            Page: {{ pagination.pageNumber + 1 }} of {{ pagination.links | length  }}
+          </span>
+          {% if pagination.nextPageHref %}
+            <a href="{{ pagination.nextPageHref }}" class="page-numbers">&nbsp;Next&nbsp;</a>
+          {% else %}
+            <span class="page-numbers">&nbsp;Next&nbsp;</span>
+          {% endif %}
+        
+</div>
+#}
+</div> 
+ 
+  

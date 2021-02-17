@@ -1,0 +1,8 @@
+  <h3><a href="/blog">Latest Blog Posts</a></h3>
+  <div class="blog_grid">
+    {% for blog in collections.blog | reverse %}
+      {% if loop.index0 < 4 %}              
+    {% include 'blog_item_extract.njk' %}    
+      {% endif %}                
+    {% endfor %}
+  </div>

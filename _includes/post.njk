@@ -1,0 +1,25 @@
+---
+layout: main.njk
+---
+{% include "partials/headings.njk" %}
+  <div class="lg:w-2/3 mx-auto p-4">
+    
+      <article>
+        <h1>{{ article_title }}</h1>
+        <p>{{ date | dateReadable }}</p>
+        {{ content | safe }}
+      </article>
+      <div class="p-4 flex justify-between">      
+{% set blogs = collections.blog | reverse %} 
+{% set len =  blogs | length -1 %} 
+  {% for blog in blogs %}
+    {% if page.url == blog.url and loop.index0 == 0 %}
+    <div>&nbsp;</div><div><a href="{{ blogs[loop.index0+1].url }}">Next <svg class="fill-current text-gray-700 inline-block" width="28" height="28" viewBox="0 0 20 20"><use xlink:href="/symbol-defs.svg#icon-arrow-right"></svg></a></div>
+    {% elif page.url == blog.url and loop.index0 == len %}
+    <div><a href="{{ blogs[loop.index0-1].url }}"><svg class="fill-current text-gray-700 inline-block" width="28" height="28" viewBox="0 0 20 20"><use xlink:href="/symbol-defs.svg#icon-arrow-left"></svg> Previous</a></div><div>&nbsp;</div>
+    {% elif page.url == blog.url and loop.index0 != 0 and loop.index != len+1 %}
+    <div><a href="{{ blogs[loop.index0-1].url }}"><svg class="fill-current text-gray-700 inline-block" width="28" height="28" viewBox="0 0 20 20"><use xlink:href="/symbol-defs.svg#icon-arrow-left"></svg> Previous</a></div><div><a href="{{ blogs[loop.index0+1].url }}">Next <svg class="fill-current text-gray-700 inline-block" width="28" height="28" viewBox="0 0 20 20"><use xlink:href="/symbol-defs.svg#icon-arrow-right"></svg></a></div>
+    {% endif %}
+  {% endfor %}
+      </div>   
+  </div>

@@ -1,0 +1,10 @@
+tailwind/
+node_modules/
+fonts/
+img/
+offline/
+_site/
+.env
+meteorwebsitedesign.com.txt
+domain.txt
+snippets.txt

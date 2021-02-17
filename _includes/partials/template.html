@@ -1,0 +1,115 @@
+<!--BREAKING BAD
+{
+    char_id: 1,
+    name: "Walter White",
+    birthday: "09-07-1958",
+    occupation: [
+        "High School Chemistry Teacher",
+        "Meth King Pin"
+    ],
+    img: "https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/cast_bb_700x1000_walter-white-lg.jpg",
+    status: "Deceased",
+    appearance: [1, 2, 3, 4, 5],
+    nickname: "Heisenberg",
+    portrayed: "Bryan Cranston"
+}
+-->
+<template id="search-result-template">
+<div class="search-result">
+          <figure class="image-wrapper">
+            <img class="image" />
+          </figure>
+
+          <h2 class="name"></h2>
+          <dl class="details">
+            <dt>Nickname</dt>
+            <dd class="nickname"></dd>
+            <dt>Portrayed</dt>
+            <dd class="portrayed"></dd>
+          </dl>
+</div>
+</template>
+
+<template id="custom-title">
+<style>
+h1{color:green;
+font-size:2rem;
+}
+</style>
+<h1>My Custom Title</h1>
+</template>
+
+<custom-title></custom-title>
+<script>
+  window.customElements.define('custom-title', class CustomTitle extends HTMLElement{
+  constructor(){
+    super()
+    this.attachShadow({mode: 'open'})
+
+  const tmpl = document.querySelector('#custom-title')
+  this.shadowRoot.appendChild(tmpl.content.cloneNode(true))
+  }
+  connectedCallback() {
+    console.log('Custom Title element added to page.'); 
+  }
+
+  disconnectedCallback() {
+    console.log('Custom Title element removed from page.');
+  }
+  
+})
+ 
+
+
+/************************************************/
+const createResult = (container, characters) => {
+  if (!'content' in document.createElement('template')) {
+    console.error('your browser does not support the template element');
+  }
+
+  // load the template for a result row
+  const template = document.getElementById('search-result-template');
+  const result = document.importNode(template.content, true);
+
+  // update the template content
+  result.querySelector('.name').textContent = characters.name;
+  result.querySelector('.nickname').textContent = characters.nickname;
+  result.querySelector('.portrayed').textContent = characters.portrayed;
+
+  // update the character image and add alt text
+  const img = result.querySelector('.image');
+  img.src = characters.img;
+  img.alt = characters.name;
+
+  while (container.firstChild) {
+    container.removeChild(container.firstChild);
+  }
+
+  // add the new row to the results container
+  container.appendChild(result);
+};
+
+/*import showResults from './show-results.js';*/
+        const form = document.querySelector('form');
+        const container = document.getElementById('container');
+        const handleSubmit = async event => {
+          event.preventDefault();
+          // get the search term from the form input
+          const name = form.elements['name'].value;
+          // send a request to the Rick & Morty API based on the user input
+          console.log('name='+name)
+          var characters = await fetch(
+            /*`https://rickandmortyapi.com/api/character/?name=${name}`,*/
+            `https://breakingbadapi.com/api/character/random`
+          )
+            .then(response => response.json())
+            .catch(error => console.error(error));
+          // add the search results to the DOM
+          console.log(JSON.stringify(characters));
+          const [first] = characters
+          createResult(container, first)
+        
+        };
+        form.addEventListener('submit', handleSubmit);
+
+</script>

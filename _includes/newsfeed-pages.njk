@@ -1,0 +1,25 @@
+<h3>News Bytes From Around The Web</h3>
+
+  {%- for article in newsfeed.articles -%}
+                 
+      <div class="blog_item p-2 m-2 border border-gray-700 bg-white">
+        <svg
+          class="icon icon-mlogo"
+          aria-labelledby="logo"
+          role="img"
+          width="25"
+          height="25"
+        >
+          <use xlink:href="/symbol-defs.svg#icon-mlogo"></use>
+        </svg>
+        <div class="text-gray-900">
+        {{ article.title }}
+        </div>       
+        <div class="text-sm">
+          <time datetime="{{ article.date }}">{{ article.date | dateReadable }}</time>
+        </div>                                            
+        <div>{{ article.content }}</div>
+      </div>
+                   
+  {%- endfor -%}
+</div>

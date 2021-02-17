@@ -1,0 +1,56 @@
+{
+  "status": "ok",
+  "totalResults": 70,
+  "articles": [
+    {
+      "source": { "id": null, "name": "Nintendolife.com" },
+      "author": "Nintendo Life",
+      "title": "Nintendo Download: 19th March (North America) - Nintendo Life",
+      "description": "Animal Crossing! Exit the Gungeon! DOOM 64!",
+      "url": "http://www.nintendolife.com/news/2020/03/nintendo_download_19th_march_north_america",
+      "urlToImage": "http://images.nintendolife.com/30f43ff693a22/1280x720.jpg",
+      "publishedAt": "2020-03-19T13:45:00Z",
+      "content": "The latest Nintendo Download update for North America has arrived, and it's bringing new games galore to the eShop in your region. As always, be sure to drop a vote in our poll and comment down below with your potential picks for the week. Enjoy!\r\nNintendo Sw… [+11983 chars]"
+    },
+    {
+      "source": { "id": "the-verge", "name": "The Verge" },
+      "author": "Tom Warren",
+      "title": "Microsoft announces new Teams features as usage skyrockets nearly 40 percent in a week - The Verge",
+      "description": "Microsoft is revealing new Teams features for its chat app as many turn to the service to work remotely. Microsoft Teams daily active users have jumped to 44 million, and Microsoft is bringing noise suppression and offline support to the app later this year.",
+      "url": "https://www.theverge.com/2020/3/19/21186452/microsoft-teams-new-features-noise-supression-user-increase-coronavirus",
+      "urlToImage": "https://cdn.vox-cdn.com/thumbor/jR4rNWcd-CmqKgAj7-mcy07Ikjg=/0x170:2376x1414/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/19818136/microsoftteamspopout.jpg",
+      "publishedAt": "2020-03-19T13:18:49Z",
+      "content": "Microsoft Teams now has 44 million daily active users\r\nMicrosoft is revealing new Teams features today to mark three years of the service just as it experiences unprecedented growth amid the ongoing coronavirus pandemic. Teams suffered an outage on Monday as … [+2662 chars]"
+    },
+    {
+      "source": { "id": null, "name": "Rockpapershotgun.com" },
+      "author": null,
+      "title": "Gabe Newell says brain-computer interfaces will be an \"extinction-level event\" for entertainment - Rock Paper Shotgun",
+      "description": "In a rare interview, Gabe Newell has said he’s been spending “a lot of time” looking into brain-computer interfaces.",
+      "url": "https://www.rockpapershotgun.com/2020/03/19/gabe-newell-says-brain-computer-interfaces-will-be-an-extinction-level-event-for-entertainment/",
+      "urlToImage": "https://assets.rockpapershotgun.com/images/2019/11/Black-Friday-build-a-half-life-alyx-pc.jpg/RPSS/thumbnail/1920x1080/format/jpg/quality/75",
+      "publishedAt": "2020-03-19T13:01:00Z",
+      "content": "In a rare interview, Gabe Newell has said he’s been spending “a lot of time” looking into brain-computer interfaces. “The Matrix is a lot closer than people think”, he says, and it’s going to be “an extinction-level event for every entertainment form that’s n… [+2017 chars]"
+    },
+    {
+      "source": { "id": null, "name": "Pushsquare.com" },
+      "author": "Push Square",
+      "title": "PS5 SSD Represents 'Biggest Leap in My Career', Says The Last of Us 2 Co-Game Director - Push Square",
+      "description": "Gigantic strides in game design possible",
+      "url": "http://www.pushsquare.com/news/2020/03/ps5_ssd_represents_biggest_leap_in_my_career_says_the_last_of_us_2_co-game_director",
+      "urlToImage": "http://images.pushsquare.com/8cf38b9a36d79/1280x720.jpg",
+      "publishedAt": "2020-03-19T12:45:00Z",
+      "content": "While the Average Joes online have been bickering about PlayStation 5s small teraflop disadvantage when compared to the Xbox Series X, developers have been quietly stressing how exciting Sonys next-gen system really is. Kurt Margenau, the co-game director on … [+808 chars]"
+    },
+    {
+      "source": { "id": null, "name": "Eurogamer.net" },
+      "author": "Wesley Yin-Poole",
+      "title": "EA Sports looks to FIFA's past as it's forced to change the way Ultimate Team works - Eurogamer.net",
+      "description": null,
+      "url": "https://www.eurogamer.net/articles/2020-03-19-ea-sports-looks-to-fifas-past-as-its-forced-to-change-the-way-ultimate-team-works",
+      "urlToImage": "https://d2skuhm0vrry40.cloudfront.net/2020/articles/2020-03-19-12-04/ea-sports-looks-to-fifas-past-as-its-forced-to-change-the-way-ultimate-team-works-1584619495314.jpg/EG11/resize/1200x-1/ea-sports-looks-to-fifas-past-as-its-forced-to-change-the-way-ultimate-team-works-1584619495314.jpg",
+      "publishedAt": "2020-03-19T12:12:48Z",
+      "content": "EA is having to change the way FIFA Ultimate Team works because of the coronavirus outbreak - and it's looking to the past for inspiration.\r\nNormally, EA runs Team of the Week promotions in which new cards are introduced into packs based on the outstanding pe… [+2449 chars]"
+    }
+  ]
+}
