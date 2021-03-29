@@ -14,7 +14,7 @@ module.exports = {
     extend: {},
   },
   variants: {
-  visibility: ["responsive", "hover", "focus", "group-hover"],
+  visibility: [],
     extend: {},
   },
   plugins: [],

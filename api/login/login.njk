@@ -1,0 +1,116 @@
+---
+layout: main.njk
+pageTitle: "Login Page"
+---
+
+  <div class="lg:w-2/3 mx-auto p-4">   
+        
+<h1>Netlify Function Tester</h1>
+<div id="results">Results</div>
+  <button id="publicButton" type="button">Test public API</button>
+  <button id="secureButton" type="button">Test secure API</button>
+  <button id="logout" type="button" onclick="logout()" style="display:none;">Sign out</button>
+  <div id="messageBox"></div>
+
+  <div id="okta-login-container"></div>
+  </div>
+<script>
+
+const oktaOrgUrl = "https://dev-9100438.okta.com";
+const oktaClientId = "0oa3ihczaNqHf3fRp5d6";
+
+
+      const oktaSignIn = new OktaSignIn({
+        baseUrl: "https://dev-9100438.okta.com",
+        logo: 'https://res.cloudinary.com/bekasa/image/upload/v1477407569/mlogo_35_38-min_hgda5n.png',
+        clientId: "0oa3ihczaNqHf3fRp5d6",
+        redirectUri: 'http://localhost:8888/api/dashboard',
+        authParams: {
+          issuer: "https://dev-9100438.okta.com/oauth2/default"
+        }
+      });
+
+      oktaSignIn.authClient.token.getUserInfo().then(function(user) {
+        document.getElementById("messageBox").innerHTML = "Hello, " + user.email + "! You are *still* logged in! :)";
+        document.getElementById("logout").style.display = 'block';
+        
+      }, function(error) {
+        oktaSignIn.showSignInToGetTokens({
+          el: '#okta-login-container'
+        }).then(function(tokens) {
+          oktaSignIn.authClient.tokenManager.setTokens(tokens);
+          oktaSignIn.remove();
+/* contradicted by rewrites*/
+          location.assign('http://localhost:8888/api/dashboard');
+
+          const idToken = tokens.idToken;
+          document.getElementById("messageBox").innerHTML = "Hello, " + idToken.claims.email + "! You just logged in! :)";
+          document.getElementById("logout").style.display = 'block';
+         
+        }).catch(function(err) {
+          console.error(err);
+        });
+      });
+
+      function logout() {
+        oktaSignIn.authClient.signOut();
+        location.assign('http://localhost:8888/');
+      }
+    
+
+// helper function to update the results text
+const displayMessage = msg => {
+    document.getElementById( "results" ).innerHTML = msg;
+  };
+
+
+  const registerButtonEvents = async ( oktaSignIn ) => {
+    // "Test public API" button click event handler
+    document.getElementById( "publicButton" ).addEventListener( "click", async function () {
+      try {
+        
+        // Use axios to make a call to the public serverless function
+        const res = await axios.get( "/api/public-test" );
+        displayMessage( JSON.stringify( res.data ) );
+      } catch ( err ) {
+        console.log( err );
+        displayMessage( err.message );
+      }
+    } );
+  
+
+
+  
+    // "Test secure API" button click event handler
+    document.getElementById( "secureButton" ).addEventListener( "click", async function () {
+      displayMessage("");
+      
+      try {
+        // get the current access token to make the request
+        const accessToken = await oktaSignIn.authClient.tokenManager.get( "accessToken" );
+        if ( !accessToken ) {
+          displayMessage( "You are not logged in" );
+          return;
+        }
+        // use axios to make a call to the secure serverless function,
+        // passing the access token in the Authorization header
+        
+        const res = await axios.get( "/api/secure-test", {
+          headers: {
+            Authorization: "Bearer " + accessToken.accessToken
+          }
+        } );
+          // display the returned data
+        displayMessage( JSON.stringify( res.data ) );
+      }
+      catch ( err ) {
+        displayMessage( err.message );
+      }
+    } );
+  
+    
+  };
+
+registerButtonEvents(oktaSignIn); 
+
+</script>
